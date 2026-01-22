@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> Simple Health Dashboard</h1>
+            <p class="subtitle">Track your daily wellness</p>
+        </header>
+
+        <!-- Time & Weekend Info -->
+        <div class="info-section">
+            <div class="info-card">
+                <h2>Current Time</h2>
+                <p>{{ time }}</p>
+            </div>
+            
+            <div class="info-card">
+                <h2>Weekend Countdown</h2>
+                {% if days_to_weekend == 0 %}
+                    <p class="big-text">🎉</p>
+                    <p>It's the weekend!</p>
+                {% else %}
+                    <p class="big-text">{{ days_to_weekend }}</p>
+                    <p>days until weekend</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- TODO: Add form section here (see LAB_GUIDE.md Part 2) -->
+
+        <!-- TODO: Add feedback section here (see LAB_GUIDE.md Part 4) -->
+
+        <footer>
+            <p>Built with Flask • CS 584 • Spring 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
