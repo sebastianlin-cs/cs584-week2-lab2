@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -112,6 +114,7 @@ header h1 {
 .big-text {
     font-size: 3em;
     margin: 10px 0;
+    
 }
 
 /* Form Section */
@@ -416,6 +419,9 @@ footer {
     border-radius: 8px;
     font-size: 1.1em;
     cursor: pointer;
+    width: 100%;
+    text-align: center;
+    justify-self: stretch;
 }
 
 .submit-btn:hover {

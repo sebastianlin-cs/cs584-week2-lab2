@@ -37,35 +37,105 @@
         <!-- TODO: Add form section here (see LAB_GUIDE.md Part 2) -->
         <!-- Health Data Form -->
         <section class="form-section">
-            <h2>Log Your Daily Health</h2>
-            <form action="/submit" method="POST" class="health-form">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
+        <h2>Log Your Daily Health</h2>
 
-                <div class="form-group">
-                    <label for="sleep_hours">Hours of Sleep:</label>
-                    <input type="number" id="sleep_hours" name="sleep_hours" placeholder="7.5" step="0.5" required>
-                </div>
+        <form action="/submit" method="POST" class="health-form">
+            <div class="form-group full">
+            <label for="name">Your Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+                value="{{ user_data.name or '' }}"
+            />
+            </div>
 
-                <div class="form-group">
-                    <label for="sleep_hours">Glasses of Water:</label>
-                    <input type="number" id="water_glasses" name="water_glasses" placeholder="9" step="1" required>
-                </div>
+            <div class="form-group">
+            <label for="sleep_hours">Hours of Sleep</label>
+            <input
+                type="number"
+                id="sleep_hours"
+                name="sleep_hours"
+                placeholder="7.5"
+                step="0.5"
+                required
+                value="{{ user_data.sleep_hours or '' }}"
+            />
+            <small class="hint">Goal: 7–9 hours</small>
+            </div>
 
-                <button type="submit" class="submit-btn">Save</button>
-            </form>
+            <div class="form-group">
+            <label for="water_glasses">Glasses of Water</label>
+            <input
+                type="number"
+                id="water_glasses"
+                name="water_glasses"
+                placeholder="9"
+                step="1"
+                required
+                value="{{ user_data.water_glasses or '' }}"
+            />
+            <small class="hint">Goal: ~7+ cups/day</small>
+            </div>
+
+            <div class="form-group">
+            <label for="exercise_minutes">Exercise Minutes</label>
+            <input
+                type="number"
+                id="exercise_minutes"
+                name="exercise_minutes"
+                placeholder="30"
+                step="1"
+                required
+                value="{{ user_data.exercise_minutes or '' }}"
+            />
+            <small class="hint">Goal: ~30+ minutes/day</small>
+            </div>
+            <button type="submit" class="submit-btn">Save</button>
+
+        </form>
         </section>
         <!-- TODO: Add feedback section here (see LAB_GUIDE.md Part 4) -->
         <!-- Display Feedback -->
         {% if user_data.name %}
         <section class="feedback-section">
+        <div class="feedback-header">
             <h2>Hello, {{ user_data.name }}! 👋</h2>
-            <p>You slept {{ user_data.sleep_hours }} hours.</p>
-            <p><strong>{{ user_data.feedback_sleep_hours }}</strong></p>
-            <p>You drank {{ user_data.water_glasses }} cups.</p>
-            <p><strong>{{ user_data.feedback_water_glasses }}</strong></p>
+            <p class="user-info">Here’s your check-in summary.</p>
+        </div>
+
+        <div class="feedback-cards">
+            <div class="feedback-card sleep">
+            <h3>😴 Sleep</h3>
+            <p class="metric">
+                <span class="metric-number">{{ user_data.sleep_hours }}</span>
+                <span class="metric-unit">hours</span>
+            </p>
+            <p class="message"><strong>{{ user_data.feedback_sleep_hours }}</strong></p>
+            </div>
+
+            <div class="feedback-card water">
+            <h3>💧 Hydration</h3>
+            <p class="metric">
+                <span class="metric-number">{{ user_data.water_glasses }}</span>
+                <span class="metric-unit">cups</span>
+            </p>
+            <p class="message"><strong>{{ user_data.feedback_water_glasses }}</strong></p>
+            </div>
+            <div class="feedback-card exercise">
+            <h3>🏃 Exercise</h3>
+            <p class="metric">
+                <span class="metric-number">{{ user_data.exercise_minutes }}</span>
+                <span class="metric-unit">minutes</span>
+            </p>
+            <p class="message">
+                <strong>{{ user_data.feedback_exercise_minutes }}</strong>
+            </p>
+            </div>
+
+        </div>
         </section>
         {% endif %}
         <footer>
