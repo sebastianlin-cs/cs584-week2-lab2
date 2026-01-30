@@ -1,44 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p5 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px 'Apple Color Emoji'; -webkit-text-stroke: #000000}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; -webkit-text-stroke: #000000}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Times; -webkit-text-stroke: #000000}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px Times; font-kerning: none}
+    span.s3 {font-kerning: none; background-color: #ffffff}
+    span.s4 {font: 10.0px Times; font-kerning: none}
+    span.s5 {font-kerning: none; background-color: #b3b3b3}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1> Simple Health Dashboard</h1>
-            <p class="subtitle">Track your daily wellness</p>
-        </header>
-
-        <!-- Time & Weekend Info -->
-        <div class="info-section">
-            <div class="info-card">
-                <h2>Current Time</h2>
-                <p>{{ time }}</p>
-            </div>
-            
-            <div class="info-card">
-                <h2>Weekend Countdown</h2>
-                {% if days_to_weekend == 0 %}
-                    <p class="big-text">🎉</p>
-                    <p>It's the weekend!</p>
-                {% else %}
-                    <p class="big-text">{{ days_to_weekend }}</p>
-                    <p>days until weekend</p>
-                {% endif %}
-            </div>
-        </div>
-
-        <!-- TODO: Add form section here (see LAB_GUIDE.md Part 2) -->
-
-        <!-- TODO: Add feedback section here (see LAB_GUIDE.md Part 4) -->
-
-        <footer>
-            <p>Built with Flask • CS 584 • Spring 2026</p>
-        </footer>
-    </div>
+<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Simple Health Dashboard</b></span></h1>
+<p class="p2"><span class="s1">Track your daily wellness</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Current Time</b></span></h2>
+<p class="p2"><span class="s1">{{ time }}</span></p>
+<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Weekend Countdown</b></span></h2>
+<p class="p4"><span class="s1">{% if days_to_weekend == 0 %}</span></p>
+<p class="p5"><span class="s1">🎉</span></p>
+<p class="p2"><span class="s1">It's the weekend!</span></p>
+<p class="p4"><span class="s1">{% else %}</span></p>
+<p class="p2"><span class="s1">{{ days_to_weekend }}</span></p>
+<p class="p2"><span class="s1">days until weekend</span></p>
+<p class="p4"><span class="s1">{% endif %}</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p7"><span class="s2">Your Name </span><span class="s3">{{ user_data.name or '' }}</span></p>
+<p class="p4"><span class="s1">Hours of Sleep </span><span class="s4">Goal: 7–9 hours</span></p>
+<p class="p8"><span class="s2">Glasses of Water </span><span class="s1">Goal: ~7+ cups/day</span></p>
+<p class="p8"><span class="s2">Exercise Minutes </span><span class="s1">Goal: ~30+ minutes/day</span></p>
+<p class="p9"><span class="s5">Save</span></p>
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p2"><span class="s1">Built with Flask • CS 584 • Spring 2026</span></p>
 </body>
 </html>
